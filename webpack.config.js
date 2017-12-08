@@ -6,19 +6,28 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
+const PATHS = {
+	app: path.join(__dirname, 'App'),
+	dist: path.join(__dirname, 'dist')
+};
+
 module.exports = {
   entry: [
-    './styles/main.scss',
+    './index.jsx',
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'dist/bundle.js',
-    publicPath: '/'
+    path: PATHS.dist,
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
-    hot: true,
+    contentBase: PATHS.dist,
+    //hot: true,
+    inline: true,
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css', '.scss']
   },
   module: {
     rules: [
@@ -28,20 +37,39 @@ module.exports = {
       { // css / sass / scss loader for webpack
         test: /\.(css|sass|scss)$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader'],
+          use: [
+            'css-loader' + (process.env.NODE_ENV === 'production' ? '?minimize' : ''),
+            'sass-loader' + (process.env.NODE_ENV === 'production' ? '?minimize' : '')
+          ],
         }),
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'babel-loader',
       },
     ],
   },
+
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
     new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin({ // define where to save the file
-      filename: 'dist/[name].bundle.css',
+      filename: '[name].bundle.css',
       allChunks: true,
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      minify: {
+        collapseWhitespace: false,
+        collapseInlineTagWhitespace: false,
+        removeComments: false,
+        removeRedundantAttributes: false
+      }
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
