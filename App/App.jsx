@@ -1,6 +1,25 @@
 import React from 'react';
+import { Button, Control, Input, Icon } from 'reactbulma'
 
 export const App = () => {
+
+  return (
+    <div>
+      <Button primary>Primary</Button>
+      <Button info>Info</Button>
+      <Button success>Success</Button>
+      <Button warning>Warning</Button>
+      <Button danger>Danger</Button>
+
+      <Control hasIconsLeft>
+        <Input placeholder="Text input"/>
+        <Icon left>
+          <i className="fa fa-home"/>
+        </Icon>
+      </Control>
+    </div>
+  )
+
   return (
     <div className="app">
       <div className="section">
