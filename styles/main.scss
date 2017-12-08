@@ -1,0 +1,30 @@
+// Import bulma utilities and variables
+// see https://bulma.io/documentation/overview/customize/
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+
+// Import r18 globals
+@import './globals.scss';
+
+
+// <begin bulma overrides>
+// TODO
+$primary: $r18-red-400;
+// <end bulma overrides>
+
+
+// Import (and generate) bulma derrived variables
+@import "~bulma/sass/utilities/derived-variables.sass";
+// <begin bulma derrived variable overrides>
+// TODO
+// $addColors: (
+//   "twitter":($twitter, $twitter-invert),
+//   "linkedin": ($linkedin, $linkedin-invert),
+//   "github": ($github, $github-invert)
+// );
+// $colors: map-merge($colors, $addColors);
+// <end bulma derrived variable overrides>
+
+
+// Import (and generate) bulma framework
+@import '~bulma/bulma';
