@@ -1,0 +1,108 @@
+// ==========================================================================
+// App
+// ==========================================================================
+
+html, body, .root, .App, .Area {
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+
+.navbar {
+  z-index: 999;
+  transform: translate3d(0, 0, 999);
+  padding: 5px;
+
+  .tabs {
+    padding-right: 20px;
+    ul { border: none; }
+    a { border: none; }
+  }
+}
+
+.wrapper {
+  display: flex;
+  height: calc(100vh - 62px);
+}
+
+
+nav {
+  flex: 1 0 240px;
+  padding: 10px;
+  overflow: auto;
+  box-shadow: 4px 0 5px -2px rgba(10, 10, 10, 0.1);
+
+  .menu-list  {
+    li {
+      a.is-active { background-color: whitesmoke; color: #4a4a4a; }
+      ul {
+        a.is-active { background-color: whitesmoke; color: black; }
+      }
+    }
+  }
+}
+
+.sidebar {
+  max-width: 280px;
+}
+
+section {
+  flex: 1 1 auto;
+  padding: 10px;
+  overflow: auto;
+  min-width: 980px;
+}
+
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+
+.row-color {
+  //background-color: pink;
+  margin: 0 0 60px 0;
+  //padding: 20px;
+}
+.label-color {
+  width: 140px;
+  padding-right: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  text-align: right;
+}
+
+.box-color {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: black;
+}
+
+// R18 BLUE
+.r18-blue { background-color: $r18-blue; }
+.r18-blue-dark { background-color: $r18-blue-dark; }
+.r18-blue-light { background-color: $r18-blue-light; }
+.r18-blue-bg { background-color: $r18-blue-bg; }
+
+// R18 RED
+.r18-red { background-color: $r18-red; }
+.r18-red-dark { background-color: $r18-red-dark; }
+.r18-red-light { background-color: $r18-red-light; }
+.r18-red-bg { background-color: $r18-red-bg; }
+
+// R18 OTHER
+.r18-green { background-color: $r18-green; }
+
+// R18 GREYS
+.r18-black { background-color: $r18-black; }
+.r18-grey-dark { background-color: $r18-grey-dark; }
+.r18-grey { background-color: $r18-grey; }
+.r18-grey-light { background-color: $r18-grey-light; }
+.r18-smoke { background-color: $r18-smoke; }
+.r18-smoke-bg { background-color: $r18-smoke-bg; }

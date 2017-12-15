@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
 const PATHS = {
+  root:  __dirname,
 	app: path.join(__dirname, 'App'),
 	dist: path.join(__dirname, 'dist')
 };
@@ -22,7 +23,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: PATHS.dist,
+    contentBase: PATHS.root,
     //hot: true,
     inline: true,
   },
@@ -44,7 +45,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.jsx$/,
+        test: /\.(jsx)$/,
         loader: 'babel-loader',
       },
     ],

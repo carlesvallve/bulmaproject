@@ -6,10 +6,9 @@
 // Import r18 globals
 @import './globals.scss';
 
-
 // <begin bulma overrides>
 // TODO
-$primary: $r18-red-400;
+$primary: $r18-red;
 $widescreen: $desktop;
 $fullhd: $desktop;
 // <end bulma overrides>
@@ -30,3 +29,9 @@ $fullhd: $desktop;
 
 // Import (and generate) bulma framework
 @import '~bulma/bulma';
+
+// Import animate framework
+@import './animate.css';
+
+// Import application custom sass files
+@import './app.scss';
